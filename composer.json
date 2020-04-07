@@ -1,0 +1,13 @@
+{
+    "name": "germangamboa/tinypost",
+    "description": "This is the right way to do web in 2020",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "germangamboa95",
+            "email": "germangamboa95@gmail.com"
+        }
+    ],
+    "require": {}
+}
