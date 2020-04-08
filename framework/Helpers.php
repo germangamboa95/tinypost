@@ -1,5 +1,7 @@
 <?php
 
+use TinyWeb\TinyWeb;
+
 if (!function_exists('dd')) {
     function dd($thing)
     {
@@ -13,7 +15,7 @@ if (!function_exists('app')) {
 
     function app()
     {
-        return  TinyPost\TinyPost::make();
+        return  TinyWeb::init();
     }
 }
 
@@ -21,7 +23,6 @@ if (!function_exists('router')) {
 
     function router()
     {
-        $app =  TinyPost\TinyPost::make();
-        return $app->router;
+        return app()->get("router");
     }
 }

@@ -1,18 +1,11 @@
 <?php
 
-use TinyPost\TinyPost;
+use TinyWeb\Http\Routing\Request;
 
-require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../src/Helpers/Utils.php';
-require_once __DIR__ . '/../src/Router/Routes.php';
+$app = require_once(__DIR__ . "/../framework/bootstrap.php");
 
 
-$app =  TinyPost::make();
+$router = $app->get('router');
 
 
-router()->handleRequest();
-
-
-$view = $app->view;
-
-$view->render('home', ['test' => 'Hello world this is dumb']);
+$response = $router->handle(Request::make());

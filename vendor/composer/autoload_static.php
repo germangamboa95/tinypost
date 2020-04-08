@@ -9,11 +9,16 @@ class ComposerStaticInit23ad980259032e0b648aceb44441c409
     public static $prefixLengthsPsr4 = array (
         'T' => 
         array (
+            'TinyWeb\\' => 8,
             'TinyPost\\' => 9,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'TinyWeb\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/framework',
+        ),
         'TinyPost\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',

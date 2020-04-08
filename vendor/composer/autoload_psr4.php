@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'TinyWeb\\' => array($baseDir . '/framework'),
     'TinyPost\\' => array($baseDir . '/src'),
 );
