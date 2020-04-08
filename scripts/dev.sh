@@ -1,6 +1,8 @@
 #!/bin/bash 
 
-echo "Starting DEV Server" 
+echo "Starting Development Server" 
+echo "Why are you even working on this?"
+echo "Go do something productive with your life"
 
 
 php -S localhost:6969 ../public/index.php

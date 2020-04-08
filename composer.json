@@ -1,13 +1,18 @@
 {
-    "name": "germangamboa/tinypost",
-    "description": "This is the right way to do web in 2020",
-    "type": "project",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "germangamboa95",
-            "email": "germangamboa95@gmail.com"
-        }
-    ],
-    "require": {}
+  "name": "germangamboa/tinypost",
+  "description": "This is the right way to do web in 2020",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "germangamboa95",
+      "email": "germangamboa95@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "TinyPost\\": "src/"
+    }
+  }
 }
