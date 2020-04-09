@@ -11,8 +11,13 @@ class TinyWeb extends DIContainer
     protected function __construct()
     {
         $this->loadConfig();
+        $this->boot();
     }
 
+    public function boot()
+    {
+        require_once __DIR__ . "/../src/Routes/web.php";
+    }
     public function loadConfig()
     {
         ['singletons' => $singletons, 'services' => $services] = require_once(__DIR__ . "/../config/app.php");
