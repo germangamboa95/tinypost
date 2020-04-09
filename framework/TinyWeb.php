@@ -2,54 +2,44 @@
 
 namespace TinyWeb;
 
-use InvalidArgumentException;
+use TinyWeb\Core\DIContainer;
 
-class TinyWeb
+class TinyWeb extends DIContainer
 {
+    protected static $app = null;
 
-    private static $instance = null;
-
-    protected array $services = [];
-
-    protected array $singletons = [];
-
-    public function add(string $key, callable $func): void
+    protected function __construct()
     {
-
-        $this->services[$key] = $func;
+        $this->loadConfig();
     }
 
-    public function singleton(string $key, callable $func)
+    public function loadConfig()
     {
-        $this->singletons[$key] = $func();
-    }
+        ['singletons' => $singletons, 'services' => $services] = require_once(__DIR__ . "/../config/app.php");
 
-    public function get(string $key)
-    {
-        if (array_key_exists($key, $this->singletons)) {
-            return $this->singletons[$key];
+
+        foreach ($singletons as $key => $value) {
+            $this->singleton($key, $value);
         }
 
-        if (array_key_exists($key, $this->services)) {
-            return $this->services[$key]();
+        foreach ($services as $key => $value) {
+            $this->set($key, $value);
         }
-
-        throw new InvalidArgumentException("$key does not exist in application");
     }
 
 
+    public static function container()
+    {
+        if (!self::$app) {
+            self::$app = new self();
+        }
+
+        return self::$app;
+    }
 
 
     public static function init()
     {
-        if (self::$instance) {
-            return self::$instance;
-        }
-
-        $instance = new self();
-
-        self::$instance = $instance;
-
-        return   self::$instance;
+        return self::container();
     }
 }
