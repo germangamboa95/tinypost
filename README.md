@@ -24,7 +24,7 @@ There is not enough bad PHP out there and this project aims to add wordpress lev
 
 ### Stage Uno
 
-- [ ] Create DI container
+- [x] Create DI container
 - [ ] Create Router
 - [ ] Create Query builder
 - [ ] Create the templating thing, views

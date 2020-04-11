@@ -10,13 +10,15 @@ class Request
 
     public $query;
 
+    public $body;
+
     public $method;
 
     public function __construct()
     {
-        $this->url = parse_url($_SERVER["REQUEST_URI"]);
-        parse_str($_SERVER['QUERY_STRING'], $output);
-        $this->query = $output;
+        $this->url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+        $this->body = $_POST;
+        $this->query = $_GET;
         $this->method = $_SERVER['REQUEST_METHOD'];
     }
 
