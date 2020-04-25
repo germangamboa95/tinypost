@@ -34,7 +34,8 @@ class Router
             throw new ErrorException("Route does not exist");
         } catch (\Throwable $th) {
             //throw $th;
-            return require_once(__DIR__ . "/../Views/404.html");
+            require_once(__DIR__ . "/../Views/404.html");
+            die();
         }
     }
 
