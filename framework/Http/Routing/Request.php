@@ -5,7 +5,6 @@ namespace TinyWeb\Http\Routing;
 
 class Request
 {
-
     public $url;
 
     public $query;

@@ -9,7 +9,10 @@ $app = require_once(__DIR__ . "/../bootstrap/bootstrap.php");
 
 $router = $app->get(Router::class);
 
-$router->handle(Request::make());
+$response = $router->handle(Request::make());
+
+// This needs to be better in the future
+echo $response;
 
 // Just die
 die();
