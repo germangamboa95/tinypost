@@ -1,12 +1,17 @@
 <?php
 
 use TinyWeb\Http\Routing\Router;
+use TinyWeb\Http\Views\Engine;
 
 return [
     'singletons' => [Router::class => function () {
         return new Router();
     }],
-    'services' => []
+    'services' => [
+        Engine::class => function () {
+            return new Engine();
+        }
+    ]
 ];
 
 // $app->singleton(Router::class, function () {

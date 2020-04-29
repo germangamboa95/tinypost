@@ -9,6 +9,7 @@ class HomeController extends BaseController
 {
     public function index()
     {
-        return "Hello world";
+
+        return $this->views->render('home', ['title' => "This is a website"]);
     }
 }
