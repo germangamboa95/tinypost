@@ -5,7 +5,7 @@ const init = async () => {
   connect_mongo();
 
   const server = new ApiServer();
-  server.start(5555);
+  server.start(+(process.env.PORT ?? 5555));
 };
 
 init();
