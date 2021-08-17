@@ -8,7 +8,8 @@
     "start:dev:api": "nodemon ./src/index.ts",
     "start:dev:worker": "nodemon ./src/worker.ts",
     "build": "rimraf ./build && tsc",
-    "start": "npm run build && node build/index.js",
+    "start:prod:api": "npm run build && node build/index.js",
+    "start:prod:worker": "npm run build && node build/worker.js",
     "lint": "eslint . --ext .ts",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
