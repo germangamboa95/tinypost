@@ -3,7 +3,9 @@ import { User, UserInterface } from '../models/User';
 export const createUser = async (user: UserInterface) => {
   const { username } = user;
 
-  const user_exists = (await User.findOne({ username }).count()) > 0;
+  const existing_user = await User.findOne({ username });
 
-  console.log(user_exists);
+  if (existing_user) return existing_user;
+
+  return User.create(user);
 };

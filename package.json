@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "build": "rimraf ./build && tsc",
+    "knex": "knex",
     "start:dev:api": "nodemon ./src/index.ts",
     "start:dev:worker": "nodemon ./src/worker.ts",
     "start:prod:api": "npm run build && node build/index.js",
@@ -41,6 +42,8 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "http-status-codes": "^2.1.4",
-    "mongoose": "^5.13.7"
+    "knex": "^0.21.21",
+    "mongoose": "^5.13.7",
+    "sqlite3": "^5.0.2"
   }
 }
