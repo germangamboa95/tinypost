@@ -1,5 +1,5 @@
 export interface PageRecord {
-  id: string;
+  id?: string;
   title: string;
 }
 

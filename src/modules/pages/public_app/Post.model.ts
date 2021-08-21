@@ -1,5 +1,5 @@
 export interface PostRecord {
-  id: string;
+  id?: string;
   title: string;
   content: string;
 }
