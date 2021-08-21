@@ -25,6 +25,10 @@ export const createPage = async (page: PageRecord) => {
 export const updatePage = async (page: PageRecord) => {
   const { id } = page;
 
+  if (!id) {
+    throw new Error(`Id is missing`);
+  }
+
   await database<PageRecord>(PAGE_TABLE).where({ id }).update(page);
 
   const record = await findById(id);

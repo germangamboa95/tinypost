@@ -26,6 +26,10 @@ export const createComment = async (comment: CommentRecord) => {
 export const updateComment = async (comment: CommentRecord) => {
   const { id } = comment;
 
+  if (!id) {
+    throw new Error(`Id is missing`);
+  }
+
   await database<CommentRecord>(COMMENT_TABLE).where({ id }).update(comment);
 
   const record = await findById(id);

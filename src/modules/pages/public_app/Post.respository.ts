@@ -26,6 +26,10 @@ export const createPost = async (post: PostRecord) => {
 export const updatePost = async (post: PostRecord) => {
   const { id } = post;
 
+  if (!id) {
+    throw new Error(`Id is missing`);
+  }
+
   await database<PostRecord>(POST_TABLE).where({ id }).update(post);
 
   const record = await findById(id);
