@@ -11,7 +11,17 @@ export const findById = async (id: string): Promise<UserRecord> => {
     return record;
 };
 
-export const createPost = async (user: UserRecord) => {
+export const findByUsername = async (username: string) => {
+
+    const [record] = await database<UserRecord>(USER_TABLE).where({
+        username
+    });
+
+    return record;
+
+}
+
+export const createUser = async (user: UserRecord) => {
     const id = uuidv4();
     await database<UserRecord>(USER_TABLE).insert({
         ...user,
@@ -23,7 +33,7 @@ export const createPost = async (user: UserRecord) => {
     return record;
 };
 
-export const updatePost = async (user: UserRecord) => {
+export const updateUser = async (user: UserRecord) => {
     const { id } = user;
 
     if (!id) {
@@ -37,6 +47,6 @@ export const updatePost = async (user: UserRecord) => {
     return record;
 };
 
-export const deletePost = async (id: string) => {
+export const deleteUser = async (id: string) => {
     await database<UserRecord>(USER_TABLE).where({ id }).delete();
 };

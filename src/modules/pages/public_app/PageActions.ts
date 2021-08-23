@@ -1,6 +1,7 @@
 import * as PageRepo from './Page.repository';
 import * as PostRepo from './Post.respository';
 import * as CommentRepo from './Comment.repository';
+import * as UserRepo from './User.repository';
 
 interface NewPageDTO {
   title: string;
@@ -69,3 +70,27 @@ export const userCreatePostComment = async (comment_dto: NewCommentDTO) => {
 
   return comment;
 };
+
+
+export interface newUserDTO {
+  username: string
+}
+
+export const registerUser = async (user_dto: newUserDTO) => {
+
+  const { username } = user_dto
+  const existing_user = await UserRepo.findByUsername(username)
+
+  if (existing_user) {
+    throw new Error('User already exists!')
+  }
+
+  const user_record = { username }
+
+  const user = await UserRepo.createUser(user_record)
+
+
+  return user
+
+
+}
