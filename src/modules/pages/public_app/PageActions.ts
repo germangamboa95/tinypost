@@ -29,13 +29,14 @@ interface NewPostDTO {
   title: string;
   content: string;
   user: object;
+  page_id: string
 }
 
 export const userCreatePagePost = async (post_dto: NewPostDTO) => {
-  const { title, content, user } = post_dto;
+  const { title, content, user, page_id } = post_dto;
 
   // @ts-ignore
-  const post_record = { title, content, user_id: user.id };
+  const post_record = { title, content, user_id: user.id, page_id };
 
   return PostRepo.createPost(post_record);
 };
@@ -45,14 +46,15 @@ interface EditPostDTO {
   title: string;
   content: string;
   user: object;
+  page_id: string
 }
 
 export const userEditPagePost = async (post_dto: EditPostDTO) => {
-  const { id, content, user } = post_dto;
+  const { id, content, user, page_id } = post_dto;
 
   const existing_post = await PostRepo.findById(id);
 
-  const post_record = { id, content, title: existing_post.title };
+  const post_record = { id, content, title: existing_post.title, page_id };
 
   const post = PostRepo.updatePost(post_record);
 
