@@ -11,6 +11,13 @@ export const findById = async (id: string): Promise<PostRecord> => {
   return record;
 };
 
+export const findByPage = async (page_id: string) => {
+  const records = await database<PostRecord>(POST_TABLE).where({
+    page_id
+  });
+
+}
+
 export const createPost = async (post: PostRecord) => {
   const id = uuidv4();
   await database<PostRecord>(POST_TABLE).insert({

@@ -19,6 +19,12 @@ export const userCreatePage = async (page_dto: NewPageDTO) => {
   return page;
 };
 
+
+export const listPagePosts = async (page_id: string) => {
+  return PostRepo.findByPage(page_id)
+}
+
+
 interface NewPostDTO {
   title: string;
   content: string;
